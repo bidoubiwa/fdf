@@ -6,7 +6,7 @@
 /*   By: cvermand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/01 19:11:10 by cvermand          #+#    #+#             */
-/*   Updated: 2018/02/08 17:51:20 by pfaust           ###   ########.fr       */
+/*   Updated: 2018/04/16 16:18:22 by cvermand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,9 @@ void		clear_image(t_env *env)
 
 int			key_hook(int keycode, t_env *env)
 {
-	if (keycode == 83 || keycode == 84 || keycode == 86 ||
-			keycode == 88 || keycode == 91 || keycode == 92)
-		rotation(env, keycode);
 	if (keycode == 78 || keycode == 69)
 		zoom(env, keycode);
-	if (keycode >= 123 && keycode <= 126)
-		movement(env, keycode);
-	if (keycode == 49)
+		if (keycode == 49)
 		reset(env);
 	if (keycode == 53)
 	{
@@ -67,7 +62,18 @@ int			key_hook(int keycode, t_env *env)
 	return (0);
 }
 
+int			press_opp(int keycode, t_env *env)
+{
+	if (keycode == 83 || keycode == 84 || keycode == 86 ||
+			keycode == 88 || keycode == 91 || keycode == 92)
+		rotation(env, keycode);
+	if (keycode >= 123 && keycode <= 126)
+		movement(env, keycode);
+	return (0);
+}
+
 void		events_listener(t_env *env)
 {
 	mlx_key_hook(env->win, key_hook, env);
+	mlx_hook(env->win, KEY_PRESS, KEY_PRESS_MASK, press_opp, env);
 }

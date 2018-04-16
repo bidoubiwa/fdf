@@ -6,7 +6,7 @@
 /*   By: cvermand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/31 13:22:28 by cvermand          #+#    #+#             */
-/*   Updated: 2018/02/12 11:21:25 by cvermand         ###   ########.fr       */
+/*   Updated: 2018/04/16 16:24:02 by cvermand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,7 +171,6 @@ int			points_to_image(t_line *matrix, t_env *env)
 	int		x;
 	t_point		***points;
 	
-	printf("Max z  : %d max real z : %f  Min z : %d min real z : %f\n ", matrix->max_z, matrix->max_real_z,  matrix->min_z, matrix->min_real_z);
 	points = matrix->points;
 	matrix->total_real = fabs(matrix->max_real_z) + fabs(matrix->min_real_z);
 	y = 0;

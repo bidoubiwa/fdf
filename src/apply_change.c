@@ -6,7 +6,7 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 12:14:46 by pfaust            #+#    #+#             */
-/*   Updated: 2018/02/12 11:00:40 by cvermand         ###   ########.fr       */
+/*   Updated: 2018/04/16 16:31:30 by cvermand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,24 @@ void		apply_rotation(t_env *env)
 
 void		rotation(t_env *env, int keycode)
 {
+	int		speed;
+
+	speed = 10;
 	clear_image(env);
 	env->matrix->min_real_z = 0;
 	env->matrix->max_real_z = 0;
 	if (keycode == 84)
-		env->matrix->rotation_x = env->matrix->rotation_x + ft_to_radians(-10);
+		env->matrix->rotation_x = env->matrix->rotation_x + ft_to_radians(-speed);
 	if (keycode == 91)
-		env->matrix->rotation_x = env->matrix->rotation_x + ft_to_radians(10);
+		env->matrix->rotation_x = env->matrix->rotation_x + ft_to_radians(speed);
 	if (keycode == 86)
-		env->matrix->rotation_y = env->matrix->rotation_y + ft_to_radians(-10);
+		env->matrix->rotation_y = env->matrix->rotation_y + ft_to_radians(-speed);
 	if (keycode == 88)
-		env->matrix->rotation_y = env->matrix->rotation_y + ft_to_radians(10);
+		env->matrix->rotation_y = env->matrix->rotation_y + ft_to_radians(speed);
 	if (keycode == 83)
-		env->matrix->rotation_z = env->matrix->rotation_z + ft_to_radians(-10);
+		env->matrix->rotation_z = env->matrix->rotation_z + ft_to_radians(-speed);
 	if (keycode == 92)
-		env->matrix->rotation_z = env->matrix->rotation_z + ft_to_radians(10);
+		env->matrix->rotation_z = env->matrix->rotation_z + ft_to_radians(speed);
 	apply_rotation(env);
 }
 

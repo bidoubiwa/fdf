@@ -6,22 +6,43 @@
 /*   By: cvermand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/28 11:21:59 by cvermand          #+#    #+#             */
-/*   Updated: 2018/02/12 11:18:51 by cvermand         ###   ########.fr       */
+/*   Updated: 2018/04/16 16:20:36 by cvermand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 # include <math.h>
-//#include <stdlib.h>
 # include <fcntl.h>
-//#include <unistd.h>
 # include <stdio.h>
 # include <string.h>
+# include "mlx_keys_macos.h"
 # include "../libft/includes/libft.h"
 # include "../minilibx_macos/mlx.h"
 # define WIDTH_SCREEN 2560
 # define HEIGHT_SCREEN 1440
+# define MOUSE_ZOOM_IN 5
+# define MOUSE_ZOOM_OUT 4
+# define KEY_ZOOM_IN 69
+# define KEY_ZOOM_OUT 78
+# define KEY_ESC 53
+# define KEY_MOUSE_STOP 49
+# define KEY_PSYCHEDELIC 19
+# define KEY_AUTO_ZOOM 18
+# define KEY_DEEP_ADD 116
+# define KEY_DEEP_SUB 121
+# define KEY_UP 126
+# define KEY_LEFT 123
+# define KEY_DOWN 125
+# define KEY_RIGHT 124
+# define KEY_RESET 15
+# define WIDTH 600
+# define HEIGHT 400
+# define MOTION_NOTIFY 6
+# define KEY_PRESS 2
+# define PTR_MOTION_MASK (1L<<6)
+# define KEY_PRESS_MASK	(1L<<0)
+
 
 //#include "../minilibx_macos/mlx_new_window.h"
 

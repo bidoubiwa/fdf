@@ -6,7 +6,7 @@
 #    By: cvermand <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/28 11:09:36 by cvermand          #+#    #+#              #
-#    Updated: 2018/04/16 15:17:50 by cvermand         ###   ########.fr        #
+#    Updated: 2018/04/16 16:18:10 by cvermand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,19 +19,21 @@ CFLAGS		=   -Wall -Werror -Wextra -g3
 _SRCS		=	fdf.c file_parsing.c line_parsing.c show_functions.c check_validity_of_input.c set_env.c transform_points.c init_mlx.c fdf_handler.c rotation_matrix.c events_listener.c apply_change.c free_all.c line_drawing.c
 _LIBFT		=	libft.a
 _MLX		= 	libmlx.a
+_HDR		=	fdf.h
 
 SRCS_DIR	=	src
+HDR_DIR		=	includes
 LIB_DIR		=	libft
 MLX_DIR		=	minilibx_macos
 SRCS		=	$(addprefix	$(SRCS_DIR)/, $(_SRCS))
 LIBFT		=	$(addprefix $(LIB_DIR)/, $(_LIBFT))
 MLX			=	$(addprefix $(MLX_DIR)/, $(_MLX))
-
+HDR			=	$(addprefix $(HDR_DIR)/, $(_HDR))
 OBJS		=	$(SRCS:.c=.o)
 
 all:	$(FDF)
 
-$(FDF) : $(LIBFT) $(MLX) $(OBJS)
+$(FDF) : $(LIBFT) $(MLX) $(OBJS) $(HDR)
 	@$(CC) $(CFLAGS) -o $(FDF) $(OBJS) -framework OpenGL -framework AppKit -L$(LIB_DIR) -lft -L$(MLX_DIR) -lmlx -lm
 	@echo "$(FDF) : $(_GREEN)Done$(_END)"
 
@@ -41,7 +43,7 @@ $(LIBFT):
 $(MLX):
 	@make -C $(MLX_DIR)
 
-%.o : %.c
+%.o : %.c $(HDR)
 	$(CC) $(CFLAGS) -c $< -o $@ -I includes/
 
 clean:
